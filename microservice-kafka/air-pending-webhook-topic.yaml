@@ -1,0 +1,13 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: air-pending-webhook         # Name of your topic
+  labels:
+    strimzi.io/cluster: staging-microservice-intemo-kafka-cluster  # Kafka cluster name
+spec:
+  partitions: 1          # Number of partitions for the topic
+  replicas: 1             # Number of replicas for each partition
+  config:                 # Additional configuration for the topic
+    cleanup.policy: compact    # Log compaction enabled
+    retention.ms: 86400000     # Retention period (e.g., 24 hours in milliseconds)
+    segment.bytes: 1073741824  # Segment size (1 GB)

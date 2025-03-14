@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staging-intemo-microservice-tracking-backend
+  namespace: default
+  labels:
+    app: intemo-microservice-tracking-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: intemo-microservice-tracking-backend
+  template:
+    metadata:
+      labels:
+        app: intemo-microservice-tracking-backend
+    spec:
+      containers:
+        - name: intemo-microservice-tracking-backend
+          image: 885876711116.dkr.ecr.ap-south-1.amazonaws.com/intemo-microservice-staging:intemo-microservice-trackings-backend111220247362
+          ports:
+            - name: http
+              containerPort: 8080
+          imagePullPolicy: Always
