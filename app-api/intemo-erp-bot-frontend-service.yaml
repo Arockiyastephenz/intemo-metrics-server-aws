@@ -8,9 +8,9 @@ metadata:
   annotations:
 spec:
   selector:
-    app: staging-mail-frontend-app
+    app: mail-bot-frontend-app
   ports:
   - name: tcp
-    port: 80
-    targetPort: 80
+    port: 7015
+    targetPort: 7015
   type: NodePort
